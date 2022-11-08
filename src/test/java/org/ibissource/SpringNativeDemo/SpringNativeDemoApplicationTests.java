@@ -1,4 +1,4 @@
-package org.wearefrank.SpringNativeDemo;
+package org.ibissource.SpringNativeDemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

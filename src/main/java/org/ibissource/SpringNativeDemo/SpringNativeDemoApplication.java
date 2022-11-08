@@ -1,4 +1,4 @@
-package org.wearefrank.SpringNativeDemo;
+package org.ibissource.SpringNativeDemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
