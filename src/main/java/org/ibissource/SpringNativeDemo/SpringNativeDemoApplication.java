@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ServletComponentScan 
-@ImportResource("springTestToolTestWebapp.xml")
+@ImportResource("classpath:springTestToolTestWebapp.xml")
 public class SpringNativeDemoApplication {
 
 	public static void main(String[] args) {
