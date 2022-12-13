@@ -9,14 +9,6 @@
 	"
 	>
 
-	<bean name="metadataExtractor" class="nl.nn.testtool.MetadataExtractor">
-		<property name="extraMetadataFieldExtractors">
-			<list>
-				<bean class="nl.nn.testtool.metadata.StatusExtractor"/>
-			</list>
-		</property>
-	</bean>
-
 	<bean name="testTool" class="nl.nn.testtool.TestTool" autowire="byName">
 		<property name="configName" value="Ladybug Test Webapp"/>
 		<property name="configVersion" value="1.0"/>
