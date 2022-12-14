@@ -9,22 +9,14 @@
 	"
 	>
 
-	<bean name="metadataExtractor" class="nl.nn.testtool.MetadataExtractor">
-		<property name="extraMetadataFieldExtractors">
-			<list>
-				<bean class="nl.nn.testtool.metadata.StatusExtractor"/>
-			</list>
-		</property>
-	</bean>
-
-	<bean name="testTool" class="nl.nn.testtool.TestTool" autowire="byName">
+	<!-- <bean name="testTool" class="nl.nn.testtool.TestTool" autowire="byName">
 		<property name="configName" value="Ladybug Test Webapp"/>
 		<property name="configVersion" value="1.0"/>
 		<property name="maxCheckpoints" value="1000"/>
 		<property name="maxMemoryUsage" value="1000000"/>
 		<property name="maxMessageLength" value="100000"/>
 		<property name="regexFilter" value=".*"/>
-	</bean>
+	</bean> -->
 
 	<bean name="whiteBoxViewMetadataNames" class="java.util.ArrayList">
 		<constructor-arg>
@@ -42,29 +34,29 @@
 		</constructor-arg>
 	</bean>
 
-	<bean name="whiteBoxView" primary = "true" class="nl.nn.testtool.filter.View" scope="prototype"> 
+	<!-- <bean name="whiteBoxView" primary = "true" class="nl.nn.testtool.filter.View" scope="prototype"> 
 		<property name="name" value="White box"/>
 		<property name="storage">
 			<ref bean="debugStorage"/>
-		</property>
+		</property>	
 		<property name="metadataNames">
 			<ref bean="whiteBoxViewMetadataNames"/>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- Demonstrate/test different list of columns for debug tab using a view -->
-	<bean name="nameOnlyView" class="nl.nn.testtool.filter.View" scope="prototype">
+	<!-- <bean name="nameOnlyView" class="nl.nn.testtool.filter.View" scope="prototype">
 		<property name="name" value="Report name only"/>
 		<property name="storage">
 			<ref bean="debugStorage"/>
 		</property>
 		<property name="metadataNames">
 			<list>
-				<value>storageId</value><!-- Without storageId the report cannot be opened -->
+				<value>storageId</value> Without storageId the report cannot be opened
 				<value>name</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<bean name="fileStorageView" class="nl.nn.testtool.filter.View" scope="prototype">
 		<property name="name" value="File storage"/>
@@ -103,7 +95,7 @@
 		</property>
 	</bean>
 
-	<bean name="views" class="nl.nn.testtool.filter.Views" scope="prototype">
+	<!-- <bean name="views" class="nl.nn.testtool.filter.Views" scope="prototype">
 		<property name="views">
 			<list>
 				<ref bean="nameOnlyView"/>
@@ -114,7 +106,7 @@
 			</list>
 		</property>
 		<property name="defaultView" ref="defaultView"/>
-	</bean>
+	</bean> -->
 
 	<!-- Profiles can override the default view with this bean -->
 	<bean name="defaultView" class="java.lang.String">
@@ -124,7 +116,7 @@
 
 	<bean name="treePane" class="nl.nn.testtool.echo2.reports.TreePane" autowire="byName" init-method="initBean" scope="prototype"/>
 
-	<bean name="reportsComponent" class="nl.nn.testtool.echo2.reports.ReportsComponent" autowire="byName" init-method="initBean" scope="prototype">
+	<!-- <bean name="reportsComponent" class="nl.nn.testtool.echo2.reports.ReportsComponent" autowire="byName" init-method="initBean" scope="prototype">
 		<property name="testTool">
 			<ref bean="testTool"/>
 		</property>
@@ -134,7 +126,7 @@
 		<property name="metadataExtractor">
 			<ref bean="metadataExtractor"/>
 		</property>
-	</bean>
+	</bean> -->
 
 	<bean name="debugPane" class="nl.nn.testtool.echo2.DebugPane" init-method="initBean" scope="prototype">
 		<property name="reportsTreeCellRenderer">
@@ -187,7 +179,7 @@
 		</property>
 	</bean>
 
-	<bean name="comparePane" class="nl.nn.testtool.echo2.ComparePane" init-method="initBean" scope="prototype">
+	<!-- <bean name="comparePane" class="nl.nn.testtool.echo2.ComparePane" init-method="initBean" scope="prototype">
 		<property name="reportsTreeCellRenderer">
 			<ref bean="reportsTreeCellRenderer"/>
 		</property>
@@ -220,7 +212,7 @@
 		<property name="reportXmlTransformer">
 			<ref bean="reportXmlTransformer"/>
 		</property>
-	</bean>
+	</bean> -->
 
 	<bean name="tabs" class="nl.nn.testtool.echo2.Tabs" scope="prototype">
 		<property name="tabs">
@@ -232,7 +224,7 @@
 		</property>
 	</bean>
 
-	<bean name="echo2Application" class="nl.nn.testtool.echo2.Echo2Application" autowire="byName" init-method="initBean" scope="prototype">
+	<!-- <bean name="echo2Application" class="nl.nn.testtool.echo2.Echo2Application" autowire="byName" init-method="initBean" scope="prototype">
 		<property name="contentPane">
 			<bean class="nextapp.echo2.app.ContentPane"/>
 		</property>
@@ -242,7 +234,7 @@
 		<property name="tabs">
 			<ref bean="tabs"/>
 		</property>
-	</bean>
+	</bean> -->
 
 	<bean name="reportsTreeCellRenderer" class="nl.nn.testtool.echo2.reports.ReportsTreeCellRenderer"/>
 
@@ -251,16 +243,6 @@
 	</bean>
 
 	<bean name="rerunner" class="org.ibissource.SpringNativeDemo.SimpleRerunner" autowire="byName"/>
-
-	<!-- Use memory storage by default as Cypress tests depend on memory storage / starting with empty storages -->
-
-	<bean name="debugStorage"  class="nl.nn.testtool.storage.memory.Storage" autowire="byName" primary="true">
-		<property name="name" value="Debug"/>
-	</bean>
-
-	<bean name="testStorage" class="nl.nn.testtool.storage.memory.Storage" autowire="byName">
-		<property name="name" value="Test"/>
-	</bean>
 
 	<bean name="fileStorage" class="nl.nn.testtool.storage.file.Storage" autowire="byName" init-method="init">
 		<property name="name" value="fileStorage"/>
@@ -316,7 +298,7 @@
 		</property>
 	</bean>
 
-	<bean name="proofOfMigrationStorage" class="nl.nn.testtool.storage.proofofmigration.ProofOfMigrationStorage" autowire="byName" init-method="init">
+	<!-- <bean name="proofOfMigrationStorage" class="nl.nn.testtool.storage.proofofmigration.ProofOfMigrationStorage" autowire="byName" init-method="init">
 		<property name="name" value="proofOfMigration"/>
 		<property name="table" value="PROOF_OF_MIGRATION"/>
 		<property name="storageIdColumnName" value="ID"/>
@@ -345,7 +327,7 @@
 				<value>TIMESTAMP</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<bean name="dbmsSupport" class="nl.nn.testtool.storage.database.DbmsSupport" autowire="byName"/>
 
