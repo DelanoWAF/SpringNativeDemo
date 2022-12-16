@@ -30,26 +30,17 @@ import nl.nn.testtool.MetadataExtractor;
 import nl.nn.testtool.MetadataFieldExtractor;
 import nl.nn.testtool.TestTool;
 import nl.nn.testtool.echo2.ComparePane;
-import nl.nn.testtool.echo2.ContentPane;
 import nl.nn.testtool.echo2.DebugPane;
-import nl.nn.testtool.echo2.Echo2Application;
 import nl.nn.testtool.echo2.Tabs;
 import nl.nn.testtool.echo2.TestPane;
-import nl.nn.testtool.echo2.reports.CheckpointComponent;
 import nl.nn.testtool.echo2.reports.ReportsComponent;
 import nl.nn.testtool.echo2.reports.ReportsTreeCellRenderer;
-import nl.nn.testtool.echo2.test.InfoPane;
-import nl.nn.testtool.echo2.test.TestComponent;
-import nl.nn.testtool.echo2.test.TreePane;
 import nl.nn.testtool.filter.View;
 import nl.nn.testtool.filter.Views;
 import nl.nn.testtool.metadata.StatusExtractor;
-import nl.nn.testtool.storage.CrudStorage;
 import nl.nn.testtool.storage.LogStorage;
 import nl.nn.testtool.storage.database.DatabaseStorage;
-import nl.nn.testtool.storage.file.TestStorage;
 import nl.nn.testtool.storage.memory.Storage;
-import nl.nn.testtool.storage.xml.XmlStorage;
 import nl.nn.testtool.transform.ReportXmlTransformer;
 
 // This file contains most bean definitions from springTestToolTestWebapp.xml. This way of creating beans is used here as Micronaut does not recognize xml bean definitions and 

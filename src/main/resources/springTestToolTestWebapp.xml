@@ -58,7 +58,7 @@
 		</property>
 	</bean> -->
 
-	<bean name="fileStorageView" class="nl.nn.testtool.filter.View" scope="prototype">
+	<!-- <bean name="fileStorageView" class="nl.nn.testtool.filter.View" scope="prototype">
 		<property name="name" value="File storage"/>
 		<property name="storage">
 			<ref bean="fileStorage"/>
@@ -93,7 +93,7 @@
 				<value>STATUS</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- <bean name="views" class="nl.nn.testtool.filter.Views" scope="prototype">
 		<property name="views">
@@ -128,7 +128,7 @@
 		</property>
 	</bean> -->
 
-	<bean name="debugPane" class="nl.nn.testtool.echo2.DebugPane" init-method="initBean" scope="prototype">
+	<!-- <bean name="debugPane" class="nl.nn.testtool.echo2.DebugPane" init-method="initBean" scope="prototype">
 		<property name="reportsTreeCellRenderer">
 			<ref bean="reportsTreeCellRenderer"/>
 		</property>
@@ -147,9 +147,9 @@
 		<property name="reportXmlTransformer">
 			<ref bean="reportXmlTransformer"/>
 		</property>
-	</bean>
+	</bean> -->
 
-	<bean name="testPane" class="nl.nn.testtool.echo2.TestPane" init-method="initBean" scope="prototype">
+	<!-- <bean name="testPane" class="nl.nn.testtool.echo2.TestPane" init-method="initBean" scope="prototype">
 		<property name="treePane">
 			<bean class="nl.nn.testtool.echo2.test.TreePane" autowire="byName" init-method="initBean" >
 				<property name="storage">
@@ -177,7 +177,7 @@
 				</property>
 			</bean>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- <bean name="comparePane" class="nl.nn.testtool.echo2.ComparePane" init-method="initBean" scope="prototype">
 		<property name="reportsTreeCellRenderer">
@@ -238,13 +238,13 @@
 
 	<bean name="reportsTreeCellRenderer" class="nl.nn.testtool.echo2.reports.ReportsTreeCellRenderer"/>
 
-	<bean name="reportXmlTransformer" class="nl.nn.testtool.transform.ReportXmlTransformer">
+	<!-- <bean name="reportXmlTransformer" class="nl.nn.testtool.transform.ReportXmlTransformer">
 		<property name="xsltResource" value="nl/nn/testtool/test/junit/transformReport.xslt"/>
-	</bean>
+	</bean> -->
 
 	<bean name="rerunner" class="org.ibissource.SpringNativeDemo.SimpleRerunner" autowire="byName"/>
 
-	<bean name="fileStorage" class="nl.nn.testtool.storage.file.Storage" autowire="byName" init-method="init">
+	<!-- <bean name="fileStorage" class="nl.nn.testtool.storage.file.Storage" autowire="byName" init-method="init">
 		<property name="name" value="fileStorage"/>
 		<property name="reportsFilename" value="../ibis-ladybug/data/file-storage/ladybug.tts"/>
 		<property name="metadataFilename" value="../ibis-ladybug/data/file-storage/ladybug.ttm"/>
@@ -261,9 +261,9 @@
 				<value>estimatedMemoryUsage</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
-	<bean name="databaseStorage" class="nl.nn.testtool.storage.database.DatabaseStorage" autowire="byName" init-method="init">
+	<!-- <bean name="databaseStorage" class="nl.nn.testtool.storage.database.DatabaseStorage" autowire="byName" init-method="init">
 		<property name="name" value="databaseStorage"/>
 		<property name="table" value="LADYBUG"/>
 		<property name="metadataColumns">
@@ -296,7 +296,7 @@
 				<value>endTime</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- <bean name="proofOfMigrationStorage" class="nl.nn.testtool.storage.proofofmigration.ProofOfMigrationStorage" autowire="byName" init-method="init">
 		<property name="name" value="proofOfMigration"/>
@@ -331,15 +331,15 @@
 
 	<bean name="dbmsSupport" class="nl.nn.testtool.storage.database.DbmsSupport" autowire="byName"/>
 
-	<bean name="dataSource" class="org.h2.jdbcx.JdbcDataSource">
+	<!-- <bean name="dataSource" class="org.h2.jdbcx.JdbcDataSource">
 		<property name="URL" value="jdbc:h2:../ibis-ladybug/data/database-storage/ladybug"/>
-	</bean>
+	</bean> -->
 
 	<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean name="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+	<!-- <bean name="liquibase" class="liquibase.integration.spring.SpringLiquibase">
 		<property name="dataSource" ref="dataSource" />
 		<property name="changeLog" value="classpath:LadybugDatabaseChangelog.xml" />
 	</bean>
@@ -347,7 +347,7 @@
 	<bean name="liquibase2" class="liquibase.integration.spring.SpringLiquibase">
 		<property name="dataSource" ref="dataSource" />
 		<property name="changeLog" value="classpath:ProofOfMigrationDatabaseChangelog.xml" />
-	</bean>
+	</bean> -->
 
 	<beans profile="storage.file">
 		<bean name="defaultView" class="java.lang.String">
