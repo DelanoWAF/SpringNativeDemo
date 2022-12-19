@@ -41,12 +41,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>2.7.4</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.ibissource</groupId>
 			<artifactId>ibis-ladybug</artifactId>
 			<version>2.3-SNAPSHOT-MICRONAUT</version>
@@ -65,12 +59,6 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-servlet-2.x</artifactId>
 			<version>1.6</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator-core</artifactId>
-			<version>0.48</version>
 		</dependency>
 
 		<dependency>
