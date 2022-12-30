@@ -43,10 +43,10 @@ import nl.nn.testtool.storage.database.DatabaseStorage;
 import nl.nn.testtool.storage.memory.Storage;
 import nl.nn.testtool.transform.ReportXmlTransformer;
 
-// This file contains most bean definitions from springTestToolTestWebapp.xml. This way of creating beans is used here as Micronaut does not recognize xml bean definitions and 
-// requires the use of annotations.
-// The annotations used are Spring annotations which are supported by Micronaut and translated into Micronaut annotations automatically.
-// It should be possible to switch these out with Micronaut annotations manually.
+
+// The Config class contains all bean definitions which threw unsupported parameter errors when defined in springTestToolTestWebapp.xml
+// These errors only occurred during the Native Image generation process.
+// @ImportResource may be removed if all definitions from springTestToolTestWebapp.xml are moved into the Config class.
 
 @Configuration
 @ImportResource("classpath:springTestToolTestWebapp.xml")
@@ -76,14 +76,6 @@ public class Config {
 		testStorage.setName("Test");
 		return testStorage;
 	}
-
-	// @Bean
-	// XmlStorage testStorage(MetadataExtractor metadataExtractor) {
-	// 	XmlStorage testStorage = new XmlStorage();
-	// 	testStorage.setName("Test");
-	// 	testStorage.setReportsFolder("../ibis-ladybug-test-webapp/src/test/testtool");
-	// 	return testStorage;
-	// }
 
 	@Bean
 	Tabs tabs(DebugPane debugPane, TestPane testPane) {
@@ -157,16 +149,6 @@ public class Config {
 		return "ladybug/default.xslt";
 	}
 
-	// @Bean
-	// Echo2Application echo2Application(ReportsTreeCellRenderer reportsTreeCellRenderer, Tabs tabs, ReportXmlTransformer reportXmlTransformer) {
-	// 	Echo2Application echo2Application = new Echo2Application();
-	// 	echo2Application.setContentPane(new ContentPane());
-	// 	echo2Application.setReportsTreeCellRenderer(reportsTreeCellRenderer);
-	// 	echo2Application.setTabs(tabs);
-	// 	echo2Application.setReportXmlTransformer(reportXmlTransformer);
-	// 	return echo2Application;
-	// }
-
 	@Bean
 	TestTool testTool(Storage debugStorage, Views views) {
 		TestTool testTool = new TestTool();
@@ -187,45 +169,6 @@ public class Config {
 		ReportsTreeCellRenderer reportsTreeCellRenderer = new ReportsTreeCellRenderer();
 		return reportsTreeCellRenderer;
 	}
-
-	// @Bean
-	// TestPane testPane(CrudStorage testStorage, TestTool testTool, LogStorage debugStorage,
-	// 		ReportXmlTransformer reportXmlTransformer) {
-	// 	TestPane testPane = new TestPane();
-
-	// 	TreePane treePane = new TreePane();
-	// 	treePane.setStorage(testStorage);
-	// 	testPane.setTreePane(treePane);
-
-	// 	TestComponent testComponent = new TestComponent();
-	// 	testComponent.setTestTool(testTool);
-	// 	testComponent.setDebugStorage(debugStorage);
-	// 	testComponent.setTestStorage(testStorage);
-	// 	testComponent.setReportXmlTransformer(reportXmlTransformer);
-
-	// 	InfoPane infoPane = new InfoPane();
-	// 	infoPane.setTestComponent(testComponent);
-
-	// 	testPane.setInfoPane(infoPane);
-	// 	return testPane;
-	// }
-
-	// @Bean
-	// nl.nn.testtool.echo2.reports.InfoPane infoPane() {
-	// 	return new nl.nn.testtool.echo2.reports.InfoPane();
-	// }
-
-	// Not being detected?
-	// @Bean
-	// nl.nn.testtool.echo2.reports.TreePane treePane() {
-	// 	nl.nn.testtool.echo2.reports.TreePane treePane = new TreePane();
-	// 	return treePane;
-	// }
-
-	// @Bean
-	// CheckpointComponent checkpointComponent() {
-	// 	return new CheckpointComponent();
-	// }
 
 	@Bean
 	DebugPane debugPane(
