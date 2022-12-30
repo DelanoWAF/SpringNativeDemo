@@ -9,9 +9,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.ibissource</groupId>
-	<artifactId>SpringNativeDemo</artifactId>
+	<artifactId>springnativedemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringNativeDemo</name>
+	<name>springnativedemo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -41,15 +41,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>2.7.4</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.ibissource</groupId>
 			<artifactId>ibis-ladybug</artifactId>
-			<version>2.3-SNAPSHOT-MICRONAUT</version>
+			<version>2.3-SNAPSHOT</version>
 		</dependency>
 
 		<!-- Reuse transformReport.xslt from ibis-ladybug test resources. See also https://maven.apache.org/plugins/maven-jar-plugin/examples/create-test-jar.html -->
@@ -58,19 +52,13 @@
 			<artifactId>ibis-ladybug</artifactId>
 			<classifier>tests</classifier>
 			<type>test-jar</type>
-			<version>2.3-SNAPSHOT-MICRONAUT</version>
+			<version>2.3-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-servlet-2.x</artifactId>
 			<version>1.6</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator-core</artifactId>
-			<version>0.48</version>
 		</dependency>
 
 		<dependency>
